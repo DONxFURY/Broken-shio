@@ -150,6 +150,7 @@
     }
     nav ul {
       display: flex;
+      align-items: center;
       gap: 25px;
     }
     nav li {
@@ -830,7 +831,7 @@
 
   <!-- Main Content -->
   <main>
-    <!-- Games Showcase -->
+    <!-- Games Showcase (unchanged) -->
     <section id="games">
       <h2>Featured Games</h2>
       <div class="filter-buttons">
@@ -978,9 +979,27 @@
     //─────────────────────────────────────────────────────────────────────────//
     //                       Constants & Sample Data                           //
     //─────────────────────────────────────────────────────────────────────────//
-    // ←– Replace this with your new webhook URL (that you posted in your last message)
+
+    // ←– Replace this with your Discord webhook URL if needed
     const WEBHOOK_URL =
       'https://discord.com/api/webhooks/1379270199932620932/Gok27h3YkP_1wCsByIjtDSP3x934G8GSrS9E95SbRVRKduUfCBrApJPBPG_LrEEWHsza';
+
+    // ←– YOUR TWO SERVERS:
+    const serversConfig = [
+  {
+    name: 'DONxFURYs Testing',
+    ip: '8volq5'
+  },
+  {
+    name: 'Trappin Rp',
+    ip: '37q9zo'
+  },
+  {
+    name: 'BreadWinners RP',
+    ip: 'mr7yy9'
+  }
+
+];
 
     const gamesData = [
       {
@@ -1021,16 +1040,10 @@
       },
     ];
 
-    const serversData = [
-      { name: 'xSTIXKS RP', status: 'Online', players: '142/200' },
-      { name: 'xSTIXKS PvP', status: 'Online', players: '76/150' },
-      { name: 'xSTIXKS Arcade', status: 'Offline', players: '0/100' },
-    ];
-
     const eventsData = [
-      { title: 'Summer Showdown Tournament', date: '2025-06-25' },
-      { title: 'Monthly Speedrun Challenge', date: '2025-07-05' },
-      { title: 'Halloween Horror Night', date: '2025-10-31' },
+      { title: 'COMING SOON!!', date: '0000-00-00' },
+      { title: 'COMING SOON!!', date: '0000-00-00' },
+      { title: 'COMING SOON!!', date: '0000-00-00' },
     ];
 
     const membersData = [
@@ -1047,9 +1060,9 @@
           'https://cdn.discordapp.com/attachments/1378443654632312913/1379230175157289081/image.png?ex=683f7bb2&is=683e2a32&hm=da55b3e45577b3403da472a9aae7b6ba3fb4286a593efba3a6407169ed5b3fcc&',
       },
       {
-        name: 'RogueSniper',
+        name: 'Poseidon',
         role: 'Moderator',
-        avatar: 'https://i.imgur.com/8pQUs9P.jpg',
+        avatar: 'https://cdn.discordapp.com/attachments/1378443654632312913/1379278347959271504/image.png?ex=683fa88f&is=683e570f&hm=5c9034e1e43c613fdde5c4cab9fe2f49ddf6b9710dac53d604c221d80a1e4715&',
       },
       {
         name: 'PixelMage',
@@ -1158,12 +1171,56 @@
     loadGames();
 
     //─────────────────────────────────────────────────────────────────────────//
-    //                             Populate Servers                              //
+    //               FETCH REAL SERVER STATS FROM FiveM API                     //
     //─────────────────────────────────────────────────────────────────────────//
-    function loadServers() {
+    async function fetchServerStats() {
+      // This function calls FiveM’s “servers/single” endpoint for each server
+      // and returns an array of objects { name, status, players }.
+      const statsArray = await Promise.all(
+        serversConfig.map(async (srv) => {
+          const apiUrl = `https://servers-frontend.fivem.net/api/servers/single/${encodeURIComponent(
+            srv.ip
+          )}`;
+          try {
+            const response = await fetch(apiUrl);
+            if (!response.ok) throw new Error('Network response was not ok');
+            const json = await response.json();
+            const data = json.Data || {};
+
+            // If Data.clients is undefined or Data.sv_maxclients is missing, treat as offline
+            const clients = data.clients ?? 0;
+            const maxClients = data.sv_maxclients ?? 0;
+            const online = data.clients > 0;
+
+            return {
+              name: srv.name,
+              status: online ? 'Online' : 'Offline',
+              players: online ? `${clients}/${maxClients}` : `0/${maxClients || '-'}`,
+            };
+          } catch (err) {
+            // If fetch fails or server isn’t reporting, show as offline
+            return {
+              name: srv.name,
+              status: 'Offline',
+              players: `0/-`,
+            };
+          }
+        })
+      );
+      return statsArray;
+    }
+
+    //─────────────────────────────────────────────────────────────────────────//
+    //                            Populate Servers                              //
+    //─────────────────────────────────────────────────────────────────────────//
+    async function loadServers() {
       const container = document.getElementById('servers-container');
-      container.innerHTML = '';
-      serversData.forEach((server) => {
+      container.innerHTML = '<p style="color: var(--text-muted); text-align: center;">Loading server stats…</p>';
+
+      const stats = await fetchServerStats();
+      container.innerHTML = ''; // clear “Loading” indicator
+
+      stats.forEach((server) => {
         const card = document.createElement('div');
         card.className = `server-card ${
           server.status.toLowerCase() === 'online' ? 'online' : 'offline'
@@ -1176,7 +1233,10 @@
         container.appendChild(card);
       });
     }
+
+    // Initial load + set to refresh every 60 seconds
     loadServers();
+    setInterval(loadServers, 60000);
 
     //─────────────────────────────────────────────────────────────────────────//
     //                             Populate Events                               //
