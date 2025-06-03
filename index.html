@@ -22,9 +22,6 @@
   ></script>
 
   <style>
-    /*─────────────────────────────────────────────────────────────────────────*/
-    /*                        :root & CSS Variables                            */
-    /*─────────────────────────────────────────────────────────────────────────*/
     :root {
       --bg-primary: #0b0b0b;
       --bg-secondary: #1f1f1f;
@@ -42,9 +39,6 @@
       --font-display: 'Press Start 2P', cursive;
     }
 
-    /*─────────────────────────────────────────────────────────────────────────*/
-    /*                           Reset & Base Styles                           */
-    /*─────────────────────────────────────────────────────────────────────────*/
     * {
       margin: 0;
       padding: 0;
@@ -82,9 +76,7 @@
       border: none;
     }
 
-    /*─────────────────────────────────────────────────────────────────────────*/
-    /*                              Preloader                                  */
-    /*─────────────────────────────────────────────────────────────────────────*/
+    /* Preloader */
     #preloader {
       position: fixed;
       top: 0;
@@ -117,9 +109,7 @@
       }
     }
 
-    /*─────────────────────────────────────────────────────────────────────────*/
-    /*                       Header & Navigation                               */
-    /*─────────────────────────────────────────────────────────────────────────*/
+    /* Header & Navigation */
     header {
       position: fixed;
       top: 0;
@@ -224,7 +214,7 @@
         right: 0;
       }
       nav li:hover .dropdown-content {
-        display: none; /* disable hover dropdown on mobile */
+        display: none;
       }
       .dropdown-content {
         position: static;
@@ -233,9 +223,7 @@
       }
     }
 
-    /*─────────────────────────────────────────────────────────────────────────*/
-    /*                              Hero Section                               */
-    /*─────────────────────────────────────────────────────────────────────────*/
+    /* Hero Section */
     .hero {
       height: 100vh;
       background: url('https://images.unsplash.com/photo-1593642532973-d31b6557fa68?auto=format&fit=crop&w=1920&q=80')
@@ -320,11 +308,9 @@
       }
     }
 
-    /*─────────────────────────────────────────────────────────────────────────*/
-    /*                            Main Container                                */
-    /*─────────────────────────────────────────────────────────────────────────*/
+    /* Main Container */
     main {
-      margin-top: 100px; /* header height + margin */
+      margin-top: 100px;
     }
     section {
       padding: 80px 20px;
@@ -350,9 +336,7 @@
       border-radius: 2px;
     }
 
-    /*─────────────────────────────────────────────────────────────────────────*/
-    /*                              Games Section                              */
-    /*─────────────────────────────────────────────────────────────────────────*/
+    /* Games Section */
     #games .filter-buttons {
       display: flex;
       flex-wrap: wrap;
@@ -410,9 +394,7 @@
       line-height: 1.4;
     }
 
-    /*─────────────────────────────────────────────────────────────────────────*/
-    /*                             Servers Section                              */
-    /*─────────────────────────────────────────────────────────────────────────*/
+    /* Servers Section */
     #servers .servers-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -457,9 +439,7 @@
       color: var(--text-secondary);
     }
 
-    /*─────────────────────────────────────────────────────────────────────────*/
-    /*                            Social & Discord                             */
-    /*─────────────────────────────────────────────────────────────────────────*/
+    /* Social & Discord */
     #socials {
       text-align: center;
     }
@@ -495,9 +475,19 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     }
 
-    /*─────────────────────────────────────────────────────────────────────────*/
-    /*                             Events Section                               */
-    /*─────────────────────────────────────────────────────────────────────────*/
+    /* Twitch Embed */
+    .twitch-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 80px;
+    }
+    .twitch-container #twitch-embed {
+      width: 100%;
+      max-width: 854px;
+      aspect-ratio: 16/9;
+    }
+
+    /* Events Section */
     #events .event-list {
       display: flex;
       flex-direction: column;
@@ -528,9 +518,7 @@
       color: var(--text-secondary);
     }
 
-    /*─────────────────────────────────────────────────────────────────────────*/
-    /*                           Members Section                                */
-    /*─────────────────────────────────────────────────────────────────────────*/
+    /* Members Section */
     #members .members-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -566,9 +554,7 @@
       color: var(--text-secondary);
     }
 
-    /*─────────────────────────────────────────────────────────────────────────*/
-    /*                             Blog Section                                 */
-    /*─────────────────────────────────────────────────────────────────────────*/
+    /* Blog Section */
     #blog .blog-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -613,9 +599,7 @@
       color: var(--accent-dark);
     }
 
-    /*─────────────────────────────────────────────────────────────────────────*/
-    /*                           Contact Section                                */
-    /*─────────────────────────────────────────────────────────────────────────*/
+    /* Contact Section */
     #contact form {
       max-width: 600px;
       margin: 0 auto;
@@ -654,9 +638,7 @@
       transform: translateY(-3px);
     }
 
-    /*─────────────────────────────────────────────────────────────────────────*/
-    /*                              Footer Section                              */
-    /*─────────────────────────────────────────────────────────────────────────*/
+    /* Footer Section */
     footer {
       background: var(--bg-secondary);
       padding: 40px 20px;
@@ -677,9 +659,7 @@
       color: var(--accent-color);
     }
 
-    /*─────────────────────────────────────────────────────────────────────────*/
-    /*                           Back to Top & Theme                            */
-    /*─────────────────────────────────────────────────────────────────────────*/
+    /* Back to Top & Theme */
     #back-to-top,
     .theme-toggle {
       position: fixed;
@@ -739,9 +719,7 @@
       background: #c0392b;
     }
 
-    /*─────────────────────────────────────────────────────────────────────────*/
-    /*                              Responsiveness                              */
-    /*─────────────────────────────────────────────────────────────────────────*/
+    /* Responsiveness */
     @media (max-width: 1024px) {
       .hero h1 {
         font-size: 2.5rem;
@@ -831,7 +809,7 @@
 
   <!-- Main Content -->
   <main>
-    <!-- Games Showcase (unchanged) -->
+    <!-- Games Showcase -->
     <section id="games">
       <h2>Featured Games</h2>
       <div class="filter-buttons">
@@ -854,47 +832,57 @@
     </section>
 
     <!-- Discord Community -->
-<section id="socials">
-  <h2>Join Our Network</h2>
+    <section id="socials">
+      <h2>Join Our Network</h2>
 
-  <div class="social-buttons">
-    <a
-      href="https://discord.gg/5RZ2PKrgvs"
-      target="_blank"
-      title="Discord"
-      ><i class="fab fa-discord"></i
-    ></a>
-    <a
-      href="https://twitter.com/xSTIXKS"
-      target="_blank"
-      title="Twitter"
-      ><i class="fab fa-twitter"></i
-    ></a>
-    <a
-      href="https://twitch.tv/xSTIXKS"
-      target="_blank"
-      title="Twitch"
-      ><i class="fab fa-twitch"></i
-    ></a>
-    <a
-      href="https://youtube.com/xSTIXKS"
-      target="_blank"
-      title="YouTube"
-      ><i class="fab fa-youtube"></i
-    ></a>
-  </div>
+      <div class="social-buttons">
+        <a
+          href="https://discord.gg/5RZ2PKrgvs"
+          target="_blank"
+          title="Discord"
+          ><i class="fab fa-discord"></i
+        ></a>
+        <a
+          href="https://twitter.com/xSTIXKS"
+          target="_blank"
+          title="Twitter"
+          ><i class="fab fa-twitter"></i
+        ></a>
+        <a
+          href="https://twitch.tv/xSTIXKS"
+          target="_blank"
+          title="Twitch"
+          ><i class="fab fa-twitch"></i
+        ></a>
+        <a
+          href="https://youtube.com/xSTIXKS"
+          target="_blank"
+          title="YouTube"
+          ><i class="fab fa-youtube"></i
+        ></a>
+      </div>
 
-  <div class="discord-widget">
-    <iframe
-      src="https://discord.com/widget?id=1377985407773446246&theme=dark"
-      width="350"
-      height="500"
-      allowtransparency="true"
-      frameborder="0"
-      sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-    ></iframe>
-  </div>
-</section>
+      <div class="discord-widget">
+        <iframe
+          src="https://discord.com/widget?id=1377985407773446246&theme=dark"
+          width="350"
+          height="500"
+          allowtransparency="true"
+          frameborder="0"
+          sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+        ></iframe>
+      </div>
+    </section>
+
+    <!-- Live Stream Section -->
+    <section id="stream">
+      <h2 style="text-align: center; color: var(--accent-color); margin-bottom: 20px;">
+        Watch Our Twitch Stream
+      </h2>
+      <div class="twitch-container">
+        <div id="twitch-embed"></div>
+      </div>
+    </section>
 
     <!-- Upcoming Events -->
     <section id="events">
@@ -924,7 +912,7 @@
     <section id="contact">
       <h2>Get in Touch</h2>
       <p style="text-align: center; margin-bottom: 15px;">
-        Or&nbsp;<a
+        Or <a
           href="https://discord.gg/5RZ2PKrgvs"
           target="_blank"
           style="color: var(--accent-color); font-weight: 700;"
@@ -976,32 +964,30 @@
     <i class="fas fa-moon"></i> <span>Dark Mode</span>
   </div>
 
+  <!-- Twitch Embed Script -->
+  <!-- Since this will be hosted on GitHub Pages (e.g. https://xstixks.github.io), use that as the parent -->
+  <script src="https://embed.twitch.tv/embed/v1.js"></script>
+  <script type="text/javascript">
+    new Twitch.Embed("twitch-embed", {
+      width: "100%",
+      height: "100%",
+      channel: "xstixk00",
+      parent: ["xstixks.github.io"]
+    });
+  </script>
+
   <!-- JavaScript -->
   <script>
-    //─────────────────────────────────────────────────────────────────────────//
-    //                       Constants & Sample Data                           //
-    //─────────────────────────────────────────────────────────────────────────//
-
-    // ←– Replace this with your Discord webhook URL if needed
+    // Discord webhook URL (if you use the contact form)
     const WEBHOOK_URL =
       'https://discord.com/api/webhooks/1379270199932620932/Gok27h3YkP_1wCsByIjtDSP3x934G8GSrS9E95SbRVRKduUfCBrApJPBPG_LrEEWHsza';
 
-    // ←– YOUR TWO SERVERS:
+    // Server configurations
     const serversConfig = [
-  {
-    name: 'xStixks',
-    ip: 'o93rq7'
-  },
-  {
-    name: 'La Onda Rp',
-    ip: 'o93rq7'
-  },
-  {
-    name: 'BreadWinners RP',
-    ip: 'mr7yy9'
-  }
-
-];
+      { name: 'xStixks', ip: 'o93rq7' },
+      { name: 'La Onda Rp', ip: 'o93rq7' },
+      { name: 'BreadWinners RP', ip: 'mr7yy9' }
+    ];
 
     const gamesData = [
       {
@@ -1092,18 +1078,12 @@
       },
     ];
 
-    //─────────────────────────────────────────────────────────────────────────//
-    //                        Preloader Fade-Out Logic                           //
-    //─────────────────────────────────────────────────────────────────────────//
     window.addEventListener('load', () => {
       const preloader = document.getElementById('preloader');
       preloader.classList.add('hidden');
       setTimeout(() => (preloader.style.display = 'none'), 700);
     });
 
-    //─────────────────────────────────────────────────────────────────────────//
-    //                            Mobile Menu Toggle                             //
-    //─────────────────────────────────────────────────────────────────────────//
     const mobileToggle = document.getElementById('mobile-toggle');
     const navMenu = document.getElementById('nav-menu');
     mobileToggle.addEventListener('click', () => {
@@ -1112,9 +1092,6 @@
       mobileToggle.querySelector('i').classList.toggle('fa-times');
     });
 
-    //─────────────────────────────────────────────────────────────────────────//
-    //                            Back to Top Button                             //
-    //─────────────────────────────────────────────────────────────────────────//
     const backToTop = document.getElementById('back-to-top');
     window.addEventListener('scroll', () => {
       backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
@@ -1123,9 +1100,6 @@
       window.scrollTo({ top: 0, behavior: 'smooth' })
     );
 
-    //─────────────────────────────────────────────────────────────────────────//
-    //                            Theme Toggle Logic                             //
-    //─────────────────────────────────────────────────────────────────────────//
     const themeToggle = document.getElementById('theme-toggle');
     themeToggle.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
@@ -1140,9 +1114,6 @@
       }
     });
 
-    //─────────────────────────────────────────────────────────────────────────//
-    //                              Populate Games                                //
-    //─────────────────────────────────────────────────────────────────────────//
     function loadGames(filter = 'all') {
       const container = document.getElementById('games-grid');
       container.innerHTML = '';
@@ -1172,12 +1143,7 @@
     });
     loadGames();
 
-    //─────────────────────────────────────────────────────────────────────────//
-    //               FETCH REAL SERVER STATS FROM FiveM API                     //
-    //─────────────────────────────────────────────────────────────────────────//
     async function fetchServerStats() {
-      // This function calls FiveM’s “servers/single” endpoint for each server
-      // and returns an array of objects { name, status, players }.
       const statsArray = await Promise.all(
         serversConfig.map(async (srv) => {
           const apiUrl = `https://servers-frontend.fivem.net/api/servers/single/${encodeURIComponent(
@@ -1189,7 +1155,6 @@
             const json = await response.json();
             const data = json.Data || {};
 
-            // If Data.clients is undefined or Data.sv_maxclients is missing, treat as offline
             const clients = data.clients ?? 0;
             const maxClients = data.sv_maxclients ?? 0;
             const online = data.clients > 0;
@@ -1200,7 +1165,6 @@
               players: online ? `${clients}/${maxClients}` : `0/${maxClients || '-'}`,
             };
           } catch (err) {
-            // If fetch fails or server isn’t reporting, show as offline
             return {
               name: srv.name,
               status: 'Offline',
@@ -1212,15 +1176,12 @@
       return statsArray;
     }
 
-    //─────────────────────────────────────────────────────────────────────────//
-    //                            Populate Servers                              //
-    //─────────────────────────────────────────────────────────────────────────//
     async function loadServers() {
       const container = document.getElementById('servers-container');
       container.innerHTML = '<p style="color: var(--text-muted); text-align: center;">Loading server stats…</p>';
 
       const stats = await fetchServerStats();
-      container.innerHTML = ''; // clear “Loading” indicator
+      container.innerHTML = '';
 
       stats.forEach((server) => {
         const card = document.createElement('div');
@@ -1236,13 +1197,9 @@
       });
     }
 
-    // Initial load + set to refresh every 60 seconds
     loadServers();
     setInterval(loadServers, 60000);
 
-    //─────────────────────────────────────────────────────────────────────────//
-    //                             Populate Events                               //
-    //─────────────────────────────────────────────────────────────────────────//
     function loadEvents() {
       const container = document.getElementById('event-list');
       container.innerHTML = '';
@@ -1258,9 +1215,6 @@
     }
     loadEvents();
 
-    //─────────────────────────────────────────────────────────────────────────//
-    //                            Populate Members                               //
-    //─────────────────────────────────────────────────────────────────────────//
     function loadMembers() {
       const container = document.getElementById('members-container');
       container.innerHTML = '';
@@ -1277,9 +1231,6 @@
     }
     loadMembers();
 
-    //─────────────────────────────────────────────────────────────────────────//
-    //                           Populate Blog Posts                              //
-    //─────────────────────────────────────────────────────────────────────────//
     function loadBlog() {
       const container = document.getElementById('blog-container');
       container.innerHTML = '';
@@ -1300,9 +1251,6 @@
     }
     loadBlog();
 
-    //─────────────────────────────────────────────────────────────────────────//
-    //                           Contact Form Submission                          //
-    //─────────────────────────────────────────────────────────────────────────//
     document
       .getElementById('contact-form')
       .addEventListener('submit', function (e) {
@@ -1316,7 +1264,6 @@
           return;
         }
 
-        // Discord wants a "content" field
         const content = `**New Contact Form Submission**\n**Name:** ${nameVal}\n**Message:** ${messageVal}`;
 
         fetch(WEBHOOK_URL, {
@@ -1324,7 +1271,7 @@
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ content }), // send as "content"
+          body: JSON.stringify({ content }),
         })
           .then((response) => {
             if (!response.ok) {
@@ -1342,9 +1289,6 @@
           });
       });
 
-    //─────────────────────────────────────────────────────────────────────────//
-    //                            ScrollSpy Active Link                            //
-    //─────────────────────────────────────────────────────────────────────────//
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
 
